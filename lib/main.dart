@@ -1,41 +1,180 @@
+import 'package:flutter/material.dart';
+
 void main() {
-  // a) Farklı veri tiplerinde değişkenler
-  int yas = 21;
-  String isim = "merve";
-  double height = 1.55;
-  bool is_active = true;
-  dynamic degisken = "Merhaba";
-  // Dart'ta ayrı bir 'char' tipi yoktur, karakterler String olarak tutulur.
-  String karakter = 'A';
+  runApp(const MyApp());
+}
 
-  print("int: $yas");
-  print("String: $isim");
-  print("double: $height");
-  print("bool: $is_active");
-  print("dynamic: $degisken");
-  print("char (String olarak): $karakter");
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  print("----------------------");
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.grey[200],
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                // Title
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.purple,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Text(
+                    'Column & Row Tasarımı',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
 
-  // b) camelCase, snake_case, PascalCase örnekleri
-  int ogrenciNumarasi = 123;       // camelCase
-  int ogrenci_numarasi = 456;      // snake_case
-  int OgrenciNumarasi = 789;       // PascalCase
+                // Üst Başlık
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.purple[300],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Text(
+                    'Üst Başlık',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
 
-  print("camelCase: $ogrenciNumarasi");
-  print("snake_case: $ogrenci_numarasi");
-  print("PascalCase: $OgrenciNumarasi");
+                // Row with 3 boxes (Box 1, Box 2, Box 3)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Text(
+                          'Box 1',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Text(
+                          'Box 2',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Text(
+                          'Box 3',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
 
-  print("----------------------");
+                // Alt Box A (Large Container)
+                Container(
+                  width: double.infinity,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.teal,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Alt Box A',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
 
-  // c) Kendi bilgilerini bastır
-  String name = "Merve";
-  String surname = "Sevim";
-  int age = 21;
-  bool of_legal_age  = true;
-
-  print("Ad: $name");
-  print("Soyad: $surname");
-  print("Yaş: $age");
-  print("Reşit mi?: $of_legal_age");
+                // Alt Box B (Large Container)
+                Container(
+                  width: double.infinity,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.red[400],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Alt Box B',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
